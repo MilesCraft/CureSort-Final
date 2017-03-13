@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using CureSort.Data;
 using CureSort.Models;
 using CureSort.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace CureSort
 {
