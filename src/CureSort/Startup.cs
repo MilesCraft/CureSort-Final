@@ -49,12 +49,7 @@ namespace CureSort
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<CureContext>(options =>
-       options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddMvc();
-
-        services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -66,7 +61,7 @@ namespace CureSort
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, CureContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -98,7 +93,6 @@ namespace CureSort
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            DbInitializer.Initialize(context);
         }
     }
 }
