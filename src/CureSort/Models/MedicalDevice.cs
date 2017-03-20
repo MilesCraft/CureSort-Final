@@ -15,9 +15,7 @@ namespace CureSort.Models
         public string Description { get; set;}
         public DateTime DateAdded { get; set; }
         public DateTime LastModified { get; set; }
-        public int ApplicationUserID { get; set;}
 
-        public ApplicationUser ApplicationUser { get; set; }
         public Bin Bin { get; set; }
     }
 }
